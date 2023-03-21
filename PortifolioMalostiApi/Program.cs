@@ -22,6 +22,7 @@ app.UseCors(p => p
 
 app.MapPost("/contacts", async (PorifolioContext context, Contact contact) => 
 {
+    contact.Date = DateTime.UtcNow;
     await context.AddAsync(contact);
     await context.SaveChangesAsync();
 
